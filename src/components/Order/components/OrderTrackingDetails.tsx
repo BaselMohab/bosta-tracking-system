@@ -41,8 +41,7 @@ export default function OrderTrackingDetails({
 }: Readonly<{ orderEvents: TransitEvent[] }>) {
 
   const {t, i18n} = useTranslation()
-  const dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
-
+  const direction = i18n.language === 'ar' ? 'rtl' : 'ltr';
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
@@ -69,11 +68,11 @@ export default function OrderTrackingDetails({
               }}
             >
               {orderEvents.map((event) => (
-                <Step key={event.timestamp}>
+                <Step key={event.timestamp} dir={direction}>
                   <StepLabel>
                     <div className='text-mainText'>
                       {event.state}
-                      <div dir={dir}>{new Date(event.timestamp).toLocaleDateString()}</div>
+                      <div dir="rtl">{new Date(event.timestamp).toLocaleDateString()}</div>
                     </div>
                   </StepLabel>
                   <StepContent aria-expanded>
