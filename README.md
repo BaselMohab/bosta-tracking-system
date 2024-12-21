@@ -11,7 +11,6 @@ The Bosta Tracking System is a front-end application designed to track orders. U
 - Localization support for Arabic and English
 - Light mode and dark mode for better user experience
 - Responsive design with Tailwind CSS and Material UI
-- Unit testing with Jest
 
 ## Technologies
 
@@ -21,7 +20,6 @@ The Bosta Tracking System is a front-end application designed to track orders. U
 - **CSS Framework:** Tailwind CSS
 - **UI Components:** Material UI
 - **Remote State Management:** React/Tanstack Query
-- **Testing:** Jest
 - **Localization:** Arabic and English
 - **Themes:** Light mode and dark mode
 
