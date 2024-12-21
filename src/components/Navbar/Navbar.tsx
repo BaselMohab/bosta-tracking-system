@@ -63,7 +63,7 @@ export default function Navbar() {
               className="font-bold text-mainText flex items-center gap-2"
               onClick={toggleDropdown}
             >
-              {currentLanguage === 'en' ? 'EN' : 'عربي'}
+              {currentLanguage === 'en' ? 'English' : 'عربي'}
               <IoIosArrowDown 
                 className={`transform transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
                 size={14}
@@ -78,7 +78,7 @@ export default function Navbar() {
                     setIsDropdownOpen(false);
                   }}
                 >
-                  EN
+                  English
                 </button>
                 <button
                   className="w-full px-4 py-2 text-left"
