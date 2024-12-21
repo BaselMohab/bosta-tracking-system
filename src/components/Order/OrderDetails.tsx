@@ -14,7 +14,7 @@ export default function OrderDetails() {
   if (!data) return <div><Loader /></div>;
 
   return (
-    <div className="w-[967px] flex flex-col gap-1 md:gap-10">
+    <div className="w-full flex flex-col gap-1 md:gap-10">
       <div>
         <OrderDate orderStatus={data} />
       </div>

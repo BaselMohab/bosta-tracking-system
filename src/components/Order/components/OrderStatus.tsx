@@ -68,7 +68,7 @@ export default function OrderStatus({
         </Stepper>
       </Box>
     ) : (
-      <Box sx={{ maxWidth: 500, marginLeft: isMobile ? 35 : 0  }}>
+      <Box sx={{ maxWidth: 500}}>
         <Stepper
           activeStep={activeStep}
           orientation="vertical"

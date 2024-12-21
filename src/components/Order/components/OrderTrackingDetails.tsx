@@ -7,7 +7,6 @@ import StepContent from '@mui/material/StepContent';
 import Typography from '@mui/material/Typography';
 import { TransitEvent } from '../../../types/util';
 import { useTranslation } from 'react-i18next';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const getStatusIndex = (code: number | undefined) => {
   switch (code) {
@@ -44,7 +43,6 @@ export default function OrderTrackingDetails({
   const {t} = useTranslation()
 
   const [activeStep, setActiveStep] = useState(0);
-  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1200px)');
 
   useEffect(() => {
     if (orderEvents.length > 0) {
@@ -57,10 +55,10 @@ export default function OrderTrackingDetails({
 
   return (
     <div>
-       <h2 className={`text-3xl text-subText capitalize py-3 font-bold ${isTablet ? 'ml-32' : 'ml-0'}`}>{t('pages.shipments.details.title')}</h2>
+       <h2 className={`text-3xl text-subText capitalize py-3 font-bold`}>{t('pages.shipments.details.title')}</h2>
        {orderEvents && orderEvents.length > 0 ? (
         <div>
-          <Box sx={{ maxWidth: 500, marginLeft: isTablet ? 20 : 0 }}>
+          <Box sx={{ maxWidth: 500 }}>
             <Stepper
               activeStep={activeStep}
               orientation="vertical"
@@ -86,7 +84,7 @@ export default function OrderTrackingDetails({
           </Box>
         </div>
        ) : (
-        <div className={`text-2xl capitalize text-searchBtn font-bold ${isTablet ? 'ml-32' : 'ml-0'}`}>No tracking details available.</div>
+        <div className={`text-2xl capitalize text-searchBtn font-bold`}>No tracking details available.</div>
        )}
     </div>
   );

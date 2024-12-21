@@ -2,15 +2,12 @@ import { useTranslation } from "react-i18next";
 import { ShipmentResponse } from "../../../types/shipment"
 import OrderStatus from "./OrderStatus"
 import moment from 'moment';
-import { useMediaQuery } from '@mui/material';
 
 export default function OrderDate({
   orderStatus
 }: { orderStatus: ShipmentResponse }) {
 
   const {t} = useTranslation()
-  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1200px)');
-  const isMobile = useMediaQuery('(max-width:560px)');
 
   const formattedDate = moment(orderStatus.PromisedDate).format('ddd MMM. D');
 
@@ -27,13 +24,13 @@ export default function OrderDate({
 
   return (
     <div className="flex flex-col shadow-xl p-3 gap-10 border border-border rounded-md">
-      <div className={`${isTablet ? 'px-32' : isMobile ? 'px-[18rem]' : 'px-5'}`}>
+      <div>
         <p className="uppercase text-subText text-sm">{t('pages.shipments.timeline.order')} #{orderStatus.TrackingNumber}</p>
         <h2 className="capitalize text-xl md:text-3xl text-mainText font-bold">{t('pages.shipments.timeline.arriving')} <span className="capitalize text-focus">{formattedDate}</span></h2>
         {getStatusMessage(orderStatus.CurrentStatus.code)}
       </div>
       <hr className="border-t-2 border-border my-4" />
-      <div className={isTablet ? "px-32" : "px-10"}>
+      <div>
         <OrderStatus orderTimeline={orderStatus} />
       </div>
     </div>
