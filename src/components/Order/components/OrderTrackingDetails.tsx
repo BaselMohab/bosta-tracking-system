@@ -40,7 +40,8 @@ export default function OrderTrackingDetails({
   orderEvents,
 }: Readonly<{ orderEvents: TransitEvent[] }>) {
 
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
+  const dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
 
   const [activeStep, setActiveStep] = useState(0);
 
@@ -72,7 +73,7 @@ export default function OrderTrackingDetails({
                   <StepLabel>
                     <div className='text-mainText'>
                       {event.state}
-                      <div dir="ltr">{new Date(event.timestamp).toLocaleDateString()}</div>
+                      <div dir={dir}>{new Date(event.timestamp).toLocaleDateString()}</div>
                     </div>
                   </StepLabel>
                   <StepContent aria-expanded>

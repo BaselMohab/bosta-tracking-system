@@ -9,8 +9,9 @@ export default function Search() {
   const isMobile = useMediaQuery('(max-width:560px)');
 
   const [searchTerm, setSearchTerm] = useState("");
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams.toString());
+
 
   const handleSubmit = () => {
     if (searchTerm) {
