@@ -15,8 +15,9 @@ export default function Navbar() {
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const isMobile = useMediaQuery('(max-width:560px)');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams.toString());
+
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
