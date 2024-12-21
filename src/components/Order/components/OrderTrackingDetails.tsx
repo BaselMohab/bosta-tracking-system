@@ -72,13 +72,13 @@ export default function OrderTrackingDetails({
               {orderEvents.map((event) => (
                 <Step key={event.timestamp}>
                   <StepLabel>
-                    <div>
+                    <div className='text-mainText'>
                       {event.state}
                       <div dir="ltr">{new Date(event.timestamp).toLocaleDateString()}</div>
                     </div>
                   </StepLabel>
                   <StepContent aria-expanded>
-                    <Typography>{event.msg || event.state}</Typography>
+                    <Typography >{event.msg || event.state}</Typography>
                   </StepContent>
                 </Step>
               ))}

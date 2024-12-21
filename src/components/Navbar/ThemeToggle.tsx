@@ -13,12 +13,12 @@ export const ThemeToggle = () => {
     return (
         <div>
             {isDark ? (
-                <FaRegMoon
+                <FiSun
                     className="text-xl cursor-pointer hover:text-gray-600 transition-colors"
                     onClick={handleChangeTheme}
                 />
             ) : (
-                <FiSun
+                <FaRegMoon
                     className="text-xl cursor-pointer hover:text-yellow-500 transition-colors"
                     onClick={handleChangeTheme}
                 />

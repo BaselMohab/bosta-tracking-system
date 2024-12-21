@@ -56,7 +56,7 @@ export default function OrderStatus({
           {steps.map((label, index) => (
             <Step key={label}>
               <StepLabel>
-                <div>
+                <div className='text-mainText'>
                   {t(label)}
                   {index === activeStep && currentStatusDate && (
                     <div>{new Date(currentStatusDate).toLocaleDateString()}</div>
@@ -80,7 +80,7 @@ export default function OrderStatus({
           {steps.map((label, index) => (
             <Step key={label}>
               <StepLabel>
-                <div>
+                <div className='text-mainText'>
                   {t(label)}
                   {index === activeStep && currentStatusDate && (
                     <div>{new Date(currentStatusDate).toLocaleDateString()}</div>

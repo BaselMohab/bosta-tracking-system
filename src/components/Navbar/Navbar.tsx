@@ -70,9 +70,9 @@ export default function Navbar() {
               />
             </button>
             {isDropdownOpen && (
-              <div className="absolute top-full right-0 mt-2 bg-white shadow-lg rounded-md overflow-hidden">
+              <div className="absolute top-full right-0 mt-2 bg-background border-langBorder shadow-lg rounded-md overflow-hidden">
                 <button
-                  className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                  className="w-full px-4 py-2 text-left"
                   onClick={() => {
                     changeLanguage('en-US');
                     setIsDropdownOpen(false);
@@ -81,7 +81,7 @@ export default function Navbar() {
                   EN
                 </button>
                 <button
-                  className="w-full px-4 py-2 text-left hover:bg-gray-100"
+                  className="w-full px-4 py-2 text-left"
                   onClick={() => {
                     changeLanguage('ar');
                     setIsDropdownOpen(false);
@@ -96,14 +96,13 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Search Modal for Mobile */}
       {isSearchModalOpen && isMobile && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white w-full max-w-md rounded-lg p-4">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold">{t('pages.track.search.title')}</h3>
+              <h3 className="text-lg font-semibold text-black">{t('pages.track.search.title')}</h3>
               <IoMdClose 
-                className="cursor-pointer" 
+                className="cursor-pointer text-black" 
                 size={24} 
                 onClick={() => setIsSearchModalOpen(false)}
               />
@@ -111,7 +110,7 @@ export default function Navbar() {
             <div className="flex flex-col gap-4">
               <input
                 type="number"
-                className="p-2 border rounded-lg w-full outline-none"
+                className="p-2 border rounded-lg w-full outline-none text-black"
                 placeholder={t('pages.track.search.placeholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
