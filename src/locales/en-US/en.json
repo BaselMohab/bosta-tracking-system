@@ -1,0 +1,56 @@
+{
+  "navbar": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "sales": "Contact Sales",
+    "track": "Track Your Shipment",
+    "login": "Login"
+  },
+  "pages": {
+    "error": {
+      "header": "An Error Occurred",
+      "message": "An unexpected error occurred. Please try again later.",
+      "cta": "Go Home"
+    },
+    "home": {
+      "title": "Join A New Generation Of Logistics!",
+      "subTitle": "Redefining how you ship, track, collect, deliver all through innovative tech-solutions and efficient operations.",
+      "cta": "Start Now"
+    },
+    "track": {
+      "search" : {
+        "title": "Track your order",
+        "subTitle": "All order updates will be available through this link.",
+        "placeholder": "Tracking No."
+      }
+    },
+    "shipments": {
+      "timeline": {
+        "yourOrder" : "Your",
+        "excpected" : "Your Shipment is expected to arrive within",
+        "order" : "order",
+        "days" : "2-3 working days",
+        "arriving" : "arriving by",
+        "shipmentNo": "Shipment ID: {{ shipmentId }}",
+        "latestUpdate": "Last Updated",
+        "merchant": "Merchant Name",
+        "expectedDelivery": "Expected Delivery",
+        "stages": {
+          "created": "Shipment Created",
+          "picked": "Picked Up",
+          "forDelivery": "Out for Delivery",
+          "delivered": "Delivered",
+          "returned": "Returned",
+          "hold": "On is Hold",
+          "inTransit" : "In Transit",
+          "cancelled": "Shipment is Canceled",
+          "review": "Shipment is Review"
+        }
+      },
+      "details": {
+        "title": "Tracking Details"
+      }
+    },
+    "searchBtn" : "search"
+  }
+}
