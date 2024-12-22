@@ -14,7 +14,7 @@ export default function main() {
       </h1>
       <h2 className="text-subText text-xl md:text-2xl font-bold">
       {t("pages.home.subTitle")}      </h2>
-      <Link to="/shippments" className="bg-searchBtn text-white py-2 px-4 rounded-md">
+      <Link to="/shipments" className="bg-searchBtn text-white py-2 px-4 rounded-md">
       {t("pages.home.cta")}
       </Link>
       <div>

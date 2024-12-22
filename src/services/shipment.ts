@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ShipmentResponse } from '../types/shipment';
 
 export function getShipment(
-  shipmentId: number,
+  trackingNumber: number,
   lang: string = 'en',
   signal?: AbortSignal
 ) {
@@ -12,7 +12,7 @@ export function getShipment(
   return axios.get<ShipmentResponse>(
     `${
       import.meta.env.VITE_BASE_URL
-    }/shipments/track/${shipmentId}?lang=${lang}`,
+    }/shipments/track/${trackingNumber}?lang=${lang}`,
     {
       headers,
       signal,

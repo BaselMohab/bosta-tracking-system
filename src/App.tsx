@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'shippments',
+        path: 'shipments',
         element: <TrackingShipments />,
       },
     ],
