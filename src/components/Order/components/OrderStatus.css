@@ -1,243 +1,136 @@
 /* Base stepper container */
 .stepper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
-  }
-  
-  /* Vertical layout for mobile */
-  .stepper.vertical {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0px;
-  }
-  
-  /* Individual step container */
-  .step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    flex: 1;
-  }
-  
-  /* Circle indicator */
-  .step-circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-  }
-  
-  /* Active step styles */
-  .step.active .step-circle {
-    border-color: var(--focus);
-    background-color: var(--focus);
-  }
-  
-  /* Checkmark icon */
-  .check-icon {
-    color: white;
-    font-size: 16px;
-  }
-  
-  /* Connecting lines */
-  .step-line {
-    position: absolute;
-    background-color: #ccc;
-    z-index: 1;
-  }
-  
-  /* Horizontal line */
-  .horizontal .step-line {
-    height: 4px;
-    width: calc(100% - 30px);
-    top: 15px;
-    left: calc(50% + 15px);
-  }
-  
-  /* Vertical line */
-  .vertical .step-line {
-    width: 4px;
-    height: 0px;
-    top: 30px;
-    left: 15px;
-  }
-  
-  /* Active line */
-  .step.active .step-line {
-    background-color: var(--focus);
-  }
-  
-  /* Label and description */
-  .step-label {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .step.active .step-label {
-    color: var(--focus);
-    font-weight: 500;
-  }
-  
-  /* RTL support */
-  [dir="rtl"] .horizontal .step-line {
-    left: auto;
-    right: calc(50% + 25px);
-  }
-  
-  /* Mobile adjustments */
-  @media (max-width: 560px) {
-    .stepper {
-      padding: 10px;
-    }
-    
-    .vertical .step {
-      width: 100%;
-      align-items: flex-start;
-      padding-left: 4px;
-    }
-    
-    .vertical .step-label {
-      text-align: left;
-      margin-bottom: 10px;
-    }
-  }
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+width: 100%;
+}
 
-  
+/* Vertical layout for mobile */
+.stepper.vertical {
+flex-direction: column;
+align-items: flex-start;
+gap: 0px;
+}
+
+/* Individual step container */
+.step {
+display: flex;
+flex-direction: column;
+align-items: center;
+position: relative;
+flex: 1;
+}
+
+/* Circle indicator */
+.step-circle {
+width: 30px;
+height: 30px;
+border-radius: 50%;
+border: 2px solid #ccc;
+background-color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+z-index: 2;
+}
+
+/* Active step styles */
+.step.active .step-circle {
+border-color: var(--focus);
+background-color: var(--focus);
+}
+
+/* Checkmark icon */
+.check-icon {
+color: white;
+font-size: 16px;
+}
+
+/* Connecting lines */
+.step-line {
+position: absolute;
+background-color: #ccc;
+z-index: 1;
+}
+
+/* Horizontal line */
+.horizontal .step-line {
+height: 4px;
+width: calc(100% - 30px);
+top: 15px;
+left: calc(50% + 15px);
+}
+
+/* Vertical line */
+.vertical .step-line {
+width: 4px;
+height: 0px;
+top: 30px;
+left: 15px;
+}
+
+/* Active line */
+.step.active .step-line {
+background-color: var(--focus);
+}
+
+/* Label and description */
+.step-label {
+margin-top: 10px;
+text-align: center;
+font-size: 14px;
+color: #666;
+}
+
+.step.active .step-label {
+color: var(--focus);
+font-weight: 500;
+}
+
+/* RTL support */
+[dir="rtl"] .horizontal .step-line {
+left: auto;
+right: calc(50% + 25px);
+}
+
 .step-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 50px;
-    margin-top: 10px;
-  }
-  
-  .step-label {
-    font-weight: 500;
-    text-align: center;
-  }
-  
-  .step-date {
-    font-size: 12px;
-    color: #666;
-    margin-top: 4px;
-  }
+display: flex;
+flex-direction: column;
+align-items: center;
+min-height: 50px;
+margin-top: 10px;
+}
 
-/* .stepper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+.step-label {
+font-weight: 500;
+text-align: center;
+}
+
+.step-date {
+font-size: 12px;
+color: #666;
+margin-top: 4px;
+}
+
+@media (max-width: 560px) {
+.stepper {
+    padding: 10px;
+}
+
+.vertical .step {
     width: 100%;
-  }
-  
-  .stepper.vertical {
-    flex-direction: column;
     align-items: flex-start;
-    gap: 0px;
-  }
-  
-  .step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    flex: 1;
-  }
-  
-  .step-circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .step.active .step-circle {
-    border-color: var(--focus);
-    background-color: var(--focus);
-  }
-  
-  .check-icon {
-    color: white;
-    font-size: 16px;
-  }
-  
-  .step-line {
-    position: absolute;
-    background-color: #ccc;
-    z-index: 1;
-  }
-  
-  .horizontal .step-line {
-    height: 4px;
-    width: calc(100% - 30px);
-    top: 15px;
-    left: calc(50% + 15px);
-  }
-  
-  .vertical .step-line {
-    width: 4px;
-    height: 85px;
-    top: 30px;
-    left: 15px;
-  }
-  
-  .step.active .step-line {
-    background-color: var(--focus);
-  }
-  
-  .step-label {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .step.active .step-label {
-    color: var(--focus);
-    font-weight: 500;
-  }
-  
-  [dir="rtl"] .horizontal .step-line {
-    left: auto;
-    right: calc(50% + 25px);
-  }
-  
-  @media (max-width: 560px) {
-    .stepper {
-      padding: 10px;
-    }
-    
-    .vertical .step {
-      width: 100%;
-      align-items: flex-start;
-      padding-left: 3px;
-    }
-    
-    .vertical .step-label {
-      text-align: left;
-      margin-bottom: 10px;
-    }
-  }
+    padding-left: 3px;
+}
 
-  
+.vertical .step-label {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
 .step-content {
     display: flex;
     flex-direction: column;
@@ -245,16 +138,24 @@
     min-height: 50px;
     margin-top: 20px;
     margin-left: 40px;
-  }
-  
-  .step-label {
+}
+
+.step-label {
     font-weight: 500;
     text-align: center;
     margin-top: -45px;
-  }
-  
-  .step-date {
+}
+
+.step-date {
     font-size: 12px;
     color: #666;
     margin-top: 0px;
-  } */
+}
+
+.vertical .step-line {
+    width: 4px;
+    height: 85px;
+    top: 30px;
+    left: 15px;
+}
+}
