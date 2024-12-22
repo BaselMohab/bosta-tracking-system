@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import StepContent from '@mui/material/StepContent';
-import Typography from '@mui/material/Typography';
 import { TransitEvent } from '../../../types/util';
 import { useTranslation } from 'react-i18next';
+import "./OrderTracking.css"
 
 const getStatusIndex = (code: number | undefined) => {
   switch (code) {
@@ -39,8 +34,7 @@ const getLastEventIndex = (events: TransitEvent[]) => {
 export default function OrderTrackingDetails({
   orderEvents,
 }: Readonly<{ orderEvents: TransitEvent[] }>) {
-
-  const {t, i18n} = useTranslation()
+  const {t, i18n} = useTranslation();
   const direction = i18n.language === 'ar' ? 'rtl' : 'ltr';
   const [activeStep, setActiveStep] = useState(0);
 
@@ -51,41 +45,43 @@ export default function OrderTrackingDetails({
     }
   }, [orderEvents]);
 
-  console.log(orderEvents)
-
   return (
     <div>
-       <h2 className={`text-3xl text-subText capitalize py-3 font-bold`}>{t('pages.shipments.details.title')}</h2>
-       {orderEvents && orderEvents.length > 0 ? (
-        <div>
-          <Box sx={{ maxWidth: 500 }}>
-            <Stepper
-              activeStep={activeStep}
-              orientation="vertical"
-              sx={{
-                '& .MuiStepIcon-root.Mui-active': { color: 'var(--focus)' },
-                '& .MuiStepIcon-root.Mui-completed': { color: 'var(--focus)' },
-              }}
-            >
-              {orderEvents.map((event) => (
-                <Step key={event.timestamp} dir={direction}>
-                  <StepLabel>
-                    <div className='text-mainText'>
-                      {event.state}
-                      <div dir="rtl">{new Date(event.timestamp).toLocaleDateString()}</div>
+      <h2 className={`text-3xl text-subText capitalize py-3 font-bold`}>
+        {t('pages.shipments.details.title')}
+      </h2>
+      {orderEvents && orderEvents.length > 0 ? (
+        <div className="tracking-wrapper" style={{ direction }}>
+          <div className="tracking-timeline">
+            {orderEvents.map((event, index) => (
+              <div 
+                key={event.timestamp} 
+                className={`timeline-item ${index <= activeStep ? 'completed' : ''}`}
+              >
+                <div className="timeline-marker">
+                  {index <= activeStep && <span className="marker-icon">✔</span>}
+                </div>
+                <div className="timeline-content">
+                  <div className="content-header">
+                    <div className="content-title">{event.state}</div>
+                    <div className="content-date">
+                      {new Date(event.timestamp).toLocaleDateString()}
                     </div>
-                  </StepLabel>
-                  <StepContent aria-expanded>
-                    <Typography >{event.msg || event.state}</Typography>
-                  </StepContent>
-                </Step>
-              ))}
-            </Stepper>
-          </Box>
+                  </div>
+                  <div className="content-description">
+                    {event.msg || event.state}
+                  </div>
+                </div>
+                {index < orderEvents.length - 1 && <div className="timeline-connector"></div>}
+              </div>
+            ))}
+          </div>
         </div>
-       ) : (
-        <div className={`text-2xl capitalize text-searchBtn font-bold`}>No tracking details available.</div>
-       )}
+      ) : (
+        <div className={`text-2xl capitalize text-searchBtn font-bold`}>
+          No tracking details available.
+        </div>
+      )}
     </div>
   );
 }
