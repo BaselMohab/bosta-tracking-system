@@ -1,5 +1,3 @@
-import React from 'react';
-import Box from '@mui/material/Box';
 import { useTranslation } from 'react-i18next';
 import { ShipmentResponse } from '../../../types/shipment';
 import { useMediaQuery } from '@mui/material';
@@ -36,12 +34,11 @@ export default function OrderStatus({
   const { t, i18n } = useTranslation();
   const activeStep = getStatusIndex(orderTimeline?.CurrentStatus?.code);
   const currentStatusDate = orderTimeline?.CurrentStatus?.timestamp;
-  const direction = i18n.language === 'ar' ? 'rtl' : 'ltr';
   const isMobile = useMediaQuery('(max-width:560px)');
+  const direction = i18n.language === 'ar' ? 'rtl' : 'ltr';
 
   return (
-    <Box sx={{ width: '100%', direction }}>
-      <div className={`stepper ${isMobile ? 'vertical' : 'horizontal'}`}>
+      <div className={`stepper ${isMobile ? 'vertical' : 'horizontal'}`} style={{ direction }}>
         {steps.map((label, index) => (
           <div key={label} className={`step ${index <= activeStep ? 'active' : ''}`}>
             <div className="step-circle">
@@ -59,6 +56,5 @@ export default function OrderStatus({
           </div>
         ))}
       </div>
-    </Box>
   );
 }
