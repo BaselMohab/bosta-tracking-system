@@ -45,7 +45,6 @@ export default function OrderStatus({
       <Box sx={{ width: '100%', direction }}>
         <Stepper
           activeStep={activeStep}
-          alternativeLabel
           sx={{
             direction,
             '& .MuiStepIcon-root.Mui-active': { color: 'var(--focus)' },
@@ -55,7 +54,7 @@ export default function OrderStatus({
           {steps.map((label, index) => (
             <Step key={label}>
               <StepLabel>
-                <div className='text-mainText'>
+                <div className='text-mainText mr-2'>
                   {t(label)}
                   {index === activeStep && currentStatusDate && (
                     <div>{new Date(currentStatusDate).toLocaleDateString()}</div>
@@ -67,7 +66,7 @@ export default function OrderStatus({
         </Stepper>
       </Box>
     ) : (
-      <Box sx={{ maxWidth: 500}}>
+      <Box sx={{ maxWidth: 500, direction: 'rtl'}}>
         <Stepper
           activeStep={activeStep}
           orientation="vertical"
@@ -79,7 +78,7 @@ export default function OrderStatus({
           {steps.map((label, index) => (
             <Step key={label}>
               <StepLabel>
-                <div className='text-mainText'>
+                <div className='text-mainText' style={{ textAlign: 'right' }}>
                   {t(label)}
                   {index === activeStep && currentStatusDate && (
                     <div>{new Date(currentStatusDate).toLocaleDateString()}</div>
