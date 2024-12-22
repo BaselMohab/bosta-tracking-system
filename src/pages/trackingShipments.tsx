@@ -17,7 +17,7 @@ export default function TrackingShipments() {
     <div className="flex flex-col items-center gap-10 mb-10">
       <Search />
       {trackingNumber && (
-        <div className="w-full lg:w-[967px] flex flex-col gap-10">
+        <div className="w-full md:w-[730px] lg:w-[967px] flex flex-col gap-10">
           {isLoading && <Loader />}
           {data && (
             <>

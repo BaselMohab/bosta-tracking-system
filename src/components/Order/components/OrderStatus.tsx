@@ -1,10 +1,9 @@
+import React from 'react';
 import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
 import { useTranslation } from 'react-i18next';
 import { ShipmentResponse } from '../../../types/shipment';
 import { useMediaQuery } from '@mui/material';
+import './OrderStatus.css';
 
 const steps = [
   'pages.shipments.timeline.stages.created',
@@ -41,54 +40,25 @@ export default function OrderStatus({
   const isMobile = useMediaQuery('(max-width:560px)');
 
   return (
-    !isMobile ? (
-      <Box sx={{ width: '100%', direction }}>
-        <Stepper
-          activeStep={activeStep}
-          sx={{
-            direction,
-            '& .MuiStepIcon-root.Mui-active': { color: 'var(--focus)' },
-            '& .MuiStepIcon-root.Mui-completed': { color: 'var(--focus)' },
-          }}
-        >
-          {steps.map((label, index) => (
-            <Step key={label}>
-              <StepLabel>
-                <div className='text-mainText mr-2'>
-                  {t(label)}
-                  {index === activeStep && currentStatusDate && (
-                    <div>{new Date(currentStatusDate).toLocaleDateString()}</div>
-                  )}
-                </div>
-              </StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-      </Box>
-    ) : (
-      <Box sx={{ maxWidth: 500, direction: 'rtl'}}>
-        <Stepper
-          activeStep={activeStep}
-          orientation="vertical"
-          sx={{
-            '& .MuiStepIcon-root.Mui-active': { color: 'var(--focus)' },
-            '& .MuiStepIcon-root.Mui-completed': { color: 'var(--focus)' },
-          }}
-        >
-          {steps.map((label, index) => (
-            <Step key={label}>
-              <StepLabel>
-                <div className='text-mainText' style={{ textAlign: 'right' }}>
-                  {t(label)}
-                  {index === activeStep && currentStatusDate && (
-                    <div>{new Date(currentStatusDate).toLocaleDateString()}</div>
-                  )}
-                </div>
-              </StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-      </Box>
-    )
+    <Box sx={{ width: '100%', direction }}>
+      <div className={`stepper ${isMobile ? 'vertical' : 'horizontal'}`}>
+        {steps.map((label, index) => (
+          <div key={label} className={`step ${index <= activeStep ? 'active' : ''}`}>
+            <div className="step-circle">
+              {index <= activeStep && <span className="check-icon">✔</span>}
+            </div>
+            <div className="step-content">
+              <div className="step-label">{t(label)}</div>
+              <div className="step-date">
+                {index === activeStep && currentStatusDate && (
+                  <div>{new Date(currentStatusDate).toLocaleDateString()}</div>
+                )}
+              </div>
+            </div>
+            {index < steps.length - 1 && <div className="step-line"></div>}
+          </div>
+        ))}
+      </div>
+    </Box>
   );
 }
