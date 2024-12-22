@@ -16,9 +16,12 @@ export default function Layout({
 
   useEffect(() => {
     if (searchParams.get('lang') !== i18n.language) {
-      setSearchParams({ ...searchParams, lang: i18n.language });
+      const updatedParams = new URLSearchParams(searchParams.toString());
+      updatedParams.set('lang', i18n.language);
+      setSearchParams(updatedParams);
     }
-  }, [i18n.language]);
+  }, [i18n.language, searchParams]);
+  
 
   return (
     <>

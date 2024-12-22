@@ -20,8 +20,12 @@ export default function Navbar() {
 
 
   const changeLanguage = (language: string) => {
+    const updatedParams = new URLSearchParams(searchParams);
+    updatedParams.set('lang', language);
+    setSearchParams(updatedParams);
     i18n.changeLanguage(language);
   };
+  
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
